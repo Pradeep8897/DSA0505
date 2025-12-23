@@ -1,0 +1,13 @@
+import pandas as pd
+
+df = pd.read_csv("sales_data.csv")
+
+pivot_sales = pd.pivot_table(
+    df,
+    index=["Region", "Manager", "SalesMan"],
+    values="Sale_amt",
+    aggfunc="sum"
+)
+
+print("Total Sale Amount (Region-wise, Manager-wise, SalesMan-wise):")
+print(pivot_sales)
