@@ -1,0 +1,13 @@
+import pandas as pd
+
+df = pd.read_csv("sales_data.csv")
+
+pivot_max_min = pd.pivot_table(
+    df,
+    index="Item",
+    values="Sale_amt",
+    aggfunc=["max", "min"]
+)
+
+print("Maximum and Minimum Sale Value of Items:")
+print(pivot_max_min)
